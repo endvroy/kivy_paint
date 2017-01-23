@@ -1,0 +1,117 @@
+#: import hex_color kivy.utils.get_color_from_hex
+
+<CanvasWidget>:
+	Button:
+		text: 'Clear'
+		right: root.right
+		top: root.top
+		width: 80
+		height: 40
+		on_release: root.clear_canvas()
+
+	BoxLayout:
+        orientation: 'vertical'
+        padding: 2
+        spacing: 2
+        x: 0
+        top: root.top
+        width: 80
+        height: 110
+
+        LineWidthRadio:
+            text: 'Thin'
+            line_width: 1
+
+        LineWidthRadio:
+            text: 'Normal'
+            line_width: 2
+            state: 'down'
+
+        LineWidthRadio:
+            text: 'Thick'
+            line_width: 4
+
+	BoxLayout:
+		orientation: 'horizontal'
+        padding: 2
+        spacing: 2
+        x: 0
+        y: 0
+        width: root.width
+        height: 40
+
+		ColorRadio:
+            background_color: hex_color('#2980b9')
+            state: 'down'
+
+        ColorRadio:
+            background_color: hex_color('#16a085')
+
+        ColorRadio:
+            background_color: hex_color('#27ae60')
+
+        ColorRadio:
+            background_color: hex_color('#f39c12')
+
+        ColorRadio:
+            background_color: hex_color('#d35400')
+
+        ColorRadio:
+            background_color: hex_color('#c0392b')
+
+        ColorRadio:
+            background_color: hex_color('#8e44ad')
+
+        ColorRadio:
+            background_color: hex_color('#bdc3c7')
+
+        ColorRadio:
+            background_color: hex_color('#7f8c8d')
+
+        ColorRadio:
+            background_color: hex_color('#2c3e50')
+
+        ColorRadio:
+            background_color: hex_color('#3498db')
+
+        ColorRadio:
+            background_color: hex_color('#1abc9c')
+
+        ColorRadio:
+            background_color: hex_color('#2ecc71')
+
+        ColorRadio:
+            background_color: hex_color('#f1c40f')
+
+        ColorRadio:
+            background_color: hex_color('#e67e22')
+
+        ColorRadio:
+            background_color: hex_color('#e74c3c')
+
+        ColorRadio:
+            background_color: hex_color('#9b59b6')
+
+        ColorRadio:
+            background_color: hex_color('#ecf0f1')
+
+        ColorRadio:
+            background_color: hex_color('#95a5a6')
+
+        ColorRadio:
+            background_color: hex_color('#34495e')
+
+<BorderedRadio@RadioButton>:
+	background_normal: 'color_button_normal.jpg'
+	background_down: 'color_button_down.png'
+	border: (3, 3, 3, 3)
+
+<ColorRadio@BorderedRadio>:
+	group: 'color'
+	on_release: app.root.set_color(self.background_color)
+
+<LineWidthRadio@BorderedRadio>:
+	group: 'line_width'
+	on_release: app.root.set_line_width(self.line_width)
+	color: hex_color('#2C3E50')
+	background_color: hex_color('#ECF0F1')
